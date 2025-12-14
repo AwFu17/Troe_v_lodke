@@ -7,12 +7,15 @@ class Point:
         self.t = t
         self.x = np.array(position, dtype=float)
 
+    # Обновляем состояния точки
     def set_state(self, new_position, new_time: float):
         self.x = np.array(new_position, dtype=float)
         self.t = new_time
 
+    # Возвращаем текущее состояние точки
     def get_state(self):
         return self.x, self.t
 
+    # Функция для вывода, чтобы был красивый вид
     def __repr__(self):
         return f"Point(id={self.id}, x={self.x}, t={self.t})"
