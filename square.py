@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import settings as s
 from integrator import RK4
 import matplotlib.patches as patches
+import numpy as np
+
 
 class Square:
 

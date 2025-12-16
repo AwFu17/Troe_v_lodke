@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import settings as s
+import numpy as np
 from integrator import RK4
 import matplotlib.patches as patches
 
@@ -32,11 +33,13 @@ class Circle:
         print(x12[0], x22[0])
         print(x13[0], x23[0])
         print(x14[0], x24[0])
+        print(xc1[0], xc2[0])
 
         print(x11[-1], x21[-1])
         print(x12[-1], x22[-1])
         print(x13[-1], x23[-1])
         print(x14[-1], x24[-1])
+        print(xc1[-1], xc2[-1])
 
         print(f"диаметр по x1 = {d_x1}, деформация по x1 составляет {(d_x1 - 2*R)/(2*R)}")
         print(f"диаметр по x2 = {d_x2}, деформация по x2 составляет {(d_x2 - 2*R)/(2*R)}")
@@ -63,9 +66,10 @@ class Circle:
         plt.grid(True)
 
         plt.tight_layout()
-        plt.show()
 
         plt.grid(True)
+
+        plt.show()
 
     def contains(self, x, y):  #проверяем принадлежит ли точка кругу
         dx = x - self.center[0]
