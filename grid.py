@@ -8,7 +8,7 @@ class Grid:
         self.min_coord = min_coord
         self._build_grid()
 
-    def _build_grid(self):
+    def __build_grid__(self):
         coords = np.arange(self.min_coord, self.max_coord + self.step, self.step)
         self.X1, self.X2 = np.meshgrid(coords, coords)
         self.points = np.column_stack((self.X1.ravel(), self.X2.ravel()))
