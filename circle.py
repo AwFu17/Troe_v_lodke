@@ -7,15 +7,14 @@ import matplotlib.patches as patches
 class Circle:
     def __init__(self, center_x1, center_x2, radius = 1):
         if (center_x1 >= -radius) or (center_x2 <= radius):
-            print(
-                "КРУГ ДОЛЖЕН БЫТЬ ВО ВТОРОЙ ЧЕТВЕРТИ!!! КООРДИНАТЫ ЦЕНТРА БЫЛИ ВЫСТАВЛЕНЫ АВТОМАТИЧЕСКИ НА (-1.1, 1.1)")
+            print("КРУГ ДОЛЖЕН БЫТЬ ВО ВТОРОЙ ЧЕТВЕРТИ!!! КООРДИНАТЫ ЦЕНТРА БЫЛИ ВЫСТАВЛЕНЫ АВТОМАТИЧЕСКИ НА (-1.1, 1.1)")
             center_x1 = -1.1
             center_x2 = 1.1
         self.c_x1 = center_x1
         self.c_x2 = center_x2
         self.radius = radius
 
-    def deformations(self, t_0 = s.t_0, t_end = s.t_end):
+    def deformations(self,t_end = s.t_end, t_0 = s.t_0):
         c1 = self.c_x1
         c2 = self.c_x2
         R = self.radius
@@ -54,20 +53,21 @@ class Circle:
         ax.add_patch(square)
 
         plt.plot(x11, x21)
-        plt.grid(True)
+
 
         plt.plot(x12, x22)
-        plt.grid(True)
+
 
         plt.plot(x13, x23)
-        plt.grid(True)
+
 
         plt.plot(x14, x24)
-        plt.grid(True)
+
 
         plt.tight_layout()
 
         plt.grid(True)
+        fig.suptitle(f'Деформация круга при t={t_end:.2f}', fontsize=10, y=0.03)
 
         plt.show()
 

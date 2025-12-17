@@ -17,7 +17,7 @@ class Square:
         self.side = side
         self.half = self.side / 2.0  # 0.5
 
-    def deformations(self, t_0 = s.t_0, t_end = s.t_end):
+    def deformations(self, t_end = s.t_end, t_0 = s.t_0):
         c1 = self.c_x1
         c2 = self.c_x2
         a = self.half
@@ -53,21 +53,21 @@ class Square:
         ax.add_patch(square)
 
         plt.plot(x11, x21)
-        plt.grid(True)
+
 
         plt.plot(x12, x22)
-        plt.grid(True)
+
 
         plt.plot(x13, x23)
-        plt.grid(True)
+
 
         plt.plot(x14, x24)
         plt.grid(True)
+        fig.suptitle(f'Деформация квадрата при t={t_end:.2f}', fontsize=10, y=0.03)
 
         plt.tight_layout()
         plt.show()
 
-        plt.grid(True)
 
     def contains(self, x, y):
         cx1, cx2 = self.c_x1, self.c_x2
