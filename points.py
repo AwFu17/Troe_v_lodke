@@ -15,4 +15,4 @@ class Point:
 
     # Функция для вывода, чтобы был красивый вид
     def __repr__(self):
-        return f"Point(id={self.id}, x1_0={self.x1_0}, x2_0={self.x1_0}, t_0={self.t_0})"
+        return f"Point(id={self.id}, x1_0={self.x1_0}, x2_0={self.x2_0}, t_0={self.t_0})"
