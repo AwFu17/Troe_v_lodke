@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import settings as s
 import numpy as np
-from integrator import RK4
+from integrator import Integrator
 import matplotlib.patches as patches
 
 class Circle:
@@ -18,11 +18,12 @@ class Circle:
         c1 = self.c_x1
         c2 = self.c_x2
         R = self.radius
-        x11, x21 = RK4(s.f1, s.f2, c1, c2+R, t_0, t_end, s.h)
-        x12, x22 = RK4(s.f1, s.f2, c1, c2-R, t_0, t_end, s.h)
-        x13, x23 = RK4(s.f1, s.f2, c1-R, c2, t_0, t_end, s.h)
-        x14, x24 = RK4(s.f1, s.f2, c1+R, c2, t_0, t_end, s.h)
-        xc1, xc2 = RK4(s.f1, s.f2, c1, c2, t_0, t_end, s.h)
+        I = Integrator(t_0, s.h)
+        x11, x21 = I.RK4(s.f1, s.f2, c1, c2+R, t_end)
+        x12, x22 = I.RK4(s.f1, s.f2, c1, c2-R, t_end)
+        x13, x23 = I.RK4(s.f1, s.f2, c1-R, c2, t_end)
+        x14, x24 = I.RK4(s.f1, s.f2, c1+R, c2, t_end)
+        xc1, xc2 = I.RK4(s.f1, s.f2, c1, c2, t_end)
 
         d_x1 = abs(x14[-1] - x13[-1])
         d_x2 = abs(x21[-1] - x22[-1])
@@ -79,5 +80,5 @@ class Circle:
     def from_user_input(cls):
         cx = float(input("Введите x-координату центра круга: "))
         cy = float(input("Введите y-координату центра круга: "))
-        assert cx < 0 and cy > 0, "Центр должен быть во 2-й четверти (x < 0, y > 0)" 
+        assert cx < 0 and cy > 0, "Центр должен быть во 2-й четверти (x < 0, y > 0)"
         return cls(cx, cy)

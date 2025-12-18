@@ -16,6 +16,8 @@ class Visualisation():
         V1 = -X1 * np.log(t)
         V2 = -X2 * np.exp(t)
 
+
+
         # СОЗДАЕМ ФИГУРУ С ДВУМЯ ПОДГРАФИКАМИ ГОРИЗОНТАЛЬНО
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
 

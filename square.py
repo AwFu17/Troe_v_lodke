@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import settings as s
-from integrator import RK4
+from integrator import Integrator
 import matplotlib.patches as patches
 import numpy as np
 
@@ -18,13 +18,14 @@ class Square:
         self.half = self.side / 2.0  # 0.5
 
     def deformations(self, t_end = s.t_end, t_0 = s.t_0):
+        I = Integrator(t_0, s.h)
         c1 = self.c_x1
         c2 = self.c_x2
         a = self.half
-        x11, x21 = RK4(s.f1, s.f2, c1+a, c2+a, t_0, t_end, s.h)
-        x12, x22 = RK4(s.f1, s.f2, c1+a, c2-a, t_0, t_end, s.h)
-        x13, x23 = RK4(s.f1, s.f2, c1-a, c2-a, t_0, t_end, s.h)
-        x14, x24 = RK4(s.f1, s.f2, c1-a, c2+a, t_0, t_end, s.h)
+        x11, x21 = I.RK4(s.f1, s.f2, c1+a, c2+a, t_end)
+        x12, x22 = I.RK4(s.f1, s.f2, c1+a, c2-a, t_end)
+        x13, x23 = I.RK4(s.f1, s.f2, c1-a, c2-a, t_end)
+        x14, x24 = I.RK4(s.f1, s.f2, c1-a, c2+a, t_end)
         l_x1 = abs(x11[-1] - x13[-1])
         l_x2 = abs(x21[-1] - x22[-1])
 
