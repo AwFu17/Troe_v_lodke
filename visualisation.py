@@ -36,7 +36,7 @@ class Visualisation():
         # --- ПРАВЫЙ ГРАФИК: Линии тока ---
         ax2.streamplot(X1, X2, V1, V2,
                                 linewidth=1.4,
-                                density=self.n/20,
+                                density=self.n/15,
                                 arrowsize=1.0,
                                 color='black')
 
@@ -52,4 +52,5 @@ class Visualisation():
 
         plt.tight_layout()
         plt.show()
+
 
