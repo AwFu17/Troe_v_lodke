@@ -70,12 +70,9 @@ class Circle:
 
         plt.show()
 
-    def contains(self, x, y):  #проверяем принадлежит ли точка кругу
-        dx = x - self.c_x1
-        dy = y - self.c_x2
-        return dx*dx + dy*dy <= self.radius**2
     @classmethod
     def from_user_input(cls):
         cx1 = float(input("Введите x-координату центра квадрата: "))
         cx2 = float(input("Введите y-координату центра квадрата: "))
+
         return cls(cx1, cx2)
