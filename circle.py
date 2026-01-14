@@ -55,15 +55,13 @@ class Circle:
 
         plt.plot(x11, x21)
 
-
         plt.plot(x12, x22)
-
 
         plt.plot(x13, x23)
 
-
         plt.plot(x14, x24)
 
+        ax.axis('equal')
 
         plt.tight_layout()
 
@@ -73,12 +71,11 @@ class Circle:
         plt.show()
 
     def contains(self, x, y):  #проверяем принадлежит ли точка кругу
-        dx = x - self.center[0]
-        dy = y - self.center[1]
+        dx = x - self.c_x1
+        dy = y - self.c_x2
         return dx*dx + dy*dy <= self.radius**2
     @classmethod
     def from_user_input(cls):
-        cx = float(input("Введите x-координату центра круга: "))
-        cy = float(input("Введите y-координату центра круга: "))
-        assert cx < 0 and cy > 0, "Центр должен быть во 2-й четверти (x < 0, y > 0)"
-        return cls(cx, cy)
+        cx1 = float(input("Введите x-координату центра квадрата: "))
+        cx2 = float(input("Введите y-координату центра квадрата: "))
+        return cls(cx1, cx2)

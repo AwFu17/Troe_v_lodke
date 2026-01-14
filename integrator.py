@@ -1,4 +1,4 @@
-class Integrator():
+class Integrator:
     def __init__(self, t_0, h):
      self.t_0 = t_0
      self.h = h

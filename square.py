@@ -63,6 +63,8 @@ class Square:
 
 
         plt.plot(x14, x24)
+
+        ax.axis('equal')
         plt.grid(True)
         fig.suptitle(f'Деформация квадрата при t={t_end:.2f}', fontsize=10, y=0.03)
 
@@ -73,3 +75,9 @@ class Square:
     def contains(self, x, y):
         cx1, cx2 = self.c_x1, self.c_x2
         return (cx1 - self.half <= x <= cx1 + self.half) and (cx2 - self.half <= y <= cx2 + self.half)
+    
+    @classmethod
+    def from_user_input(cls):
+        cx1 = float(input("Введите x-координату центра квадрата: "))
+        cx2 = float(input("Введите y-координату центра квадрата: "))
+        return cls(cx1, cx2)
